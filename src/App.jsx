@@ -1142,8 +1142,8 @@ const MigrationMap = ({ onNodeClick }) => {
         };
 
         if (!echarts.getMap('world')) {
-            console.log('📥 从 CDN 加载世界地图...');
-            fetch('https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/json/world.json')
+            console.log('📥 从本地加载世界地图...');
+            fetch('/world.json')
                 .then(res => res.json())
                 .then(json => {
                     echarts.registerMap('world', json); 
