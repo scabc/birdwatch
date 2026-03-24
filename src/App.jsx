@@ -544,7 +544,8 @@ const MigrationMap = ({ onNodeClick }) => {
 const DataHubSection = () => {
     const [selectedTrendBird, setSelectedTrendBird] = useState('spoon_sandpiper');
     const [sentinelSearch, setSentinelSearch] = useState('');
-    
+    const [chartsLoading, setChartsLoading] = useState(true);
+
     const lineChartRef = useRef(null);
     const radarChartRef = useRef(null);
     const lineInstance = useRef(null);
@@ -626,6 +627,7 @@ const DataHubSection = () => {
         };
 
         renderCharts();
+        setChartsLoading(false);
         const resize = () => { lineInstance.current?.resize(); radarInstance.current?.resize(); };
         window.addEventListener('resize', resize);
         const timer = setTimeout(resize, 200); // 🚀 确保 Grid 布局稳定后捕获高度
@@ -773,15 +775,32 @@ const DataHubSection = () => {
                         {/* B. 底层：趋势与雷达 (并排呈现) */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {/* 3. 25年监测历史 */}
-                            <Observer className="bg-white p-10 rounded-[3.5rem] border border-gray-50 shadow-sm h-[420px] relative">
+                            <Observer className="bg-white p-10 rounded-[3.5rem] border border-gray-50 shadow-sm h-[420px] relative overflow-hidden">
                                 <span className="absolute top-10 left-12 text-[10px] font-black text-gray-400 uppercase tracking-[0.3em]">Population Dynamics / 种群趋势</span>
-                                <div ref={lineChartRef} className="w-full h-full pt-8"></div>
+                                {chartsLoading ? (
+                                    <div className="w-full h-full pt-8 flex flex-col justify-end gap-4">
+                                        <div className="h-3 bg-gray-100 rounded-full skeleton-shimmer"></div>
+                                        <div className="h-3 bg-gray-100 rounded-full skeleton-shimmer delay-100"></div>
+                                        <div className="h-3 bg-gray-100 rounded-full skeleton-shimmer delay-200"></div>
+                                        <div className="h-24 bg-amber-50 rounded-2xl mt-4 skeleton-shimmer delay-300"></div>
+                                    </div>
+                                ) : (
+                                    <div ref={lineChartRef} className="w-full h-full pt-8"></div>
+                                )}
                             </Observer>
 
                             {/* 4. 多维威胁矩阵 */}
-                            <Observer className="bg-white p-10 rounded-[3.5rem] border border-gray-50 shadow-sm h-[420px] relative">
+                            <Observer className="bg-white p-10 rounded-[3.5rem] border border-gray-50 shadow-sm h-[420px] relative overflow-hidden">
                                 <span className="absolute top-10 left-12 text-[10px] font-black text-gray-400 uppercase tracking-[0.3em]">Stress Matrix / 威胁矩阵</span>
-                                <div ref={radarChartRef} className="w-full h-full pt-4"></div>
+                                {chartsLoading ? (
+                                    <div className="w-full h-full pt-4 flex items-center justify-center">
+                                        <div className="w-48 h-48 rounded-full border-8 border-gray-100 flex items-center justify-center skeleton-shimmer">
+                                            <div className="w-32 h-32 rounded-full border-4 border-amber-100"></div>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div ref={radarChartRef} className="w-full h-full pt-4"></div>
+                                )}
                             </Observer>
                         </div>
 
