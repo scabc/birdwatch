@@ -1,8 +1,7 @@
-/* 1. 所有的 @import 必须放在最顶部 */
+/* 1. Tailwind CSS */
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;700&family=Noto+Serif+SC:wght@700;900&display=swap');
 
-/* 2. 然后是设计令牌定义 (Tailwind v4 @theme) */
+/* 2. 设计令牌定义 (Tailwind v4 @theme) */
 @theme {
   /* ============================================
      自然色系配色方案 (Nature-Inspired Palette)

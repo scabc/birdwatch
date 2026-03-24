@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useMemo, lazy, Suspense } from 'rea
 
 // 共享组件
 import { Observer, Icon, BrandLogo, ErrorBoundary } from './components/Shared';
-import { useParallax, useParallaxBackground } from './hooks';
+import { useParallax, useParallaxBackground, LazyImage } from './hooks';
 
 // Modals
 import { SpeciesDetailModal, HabitatDetailModal, RegisterModal, ContactModal, TimelineDetailModal } from './components/Modals';
@@ -1519,11 +1519,11 @@ const SpeciesGallery = ({ onSelectBird }) => {
                                         className="glass lift-hover rounded-[3.5rem] border border-white/40 overflow-hidden transition-all duration-500 cursor-pointer group"
                                     >
                                         <div className="relative aspect-[11/9] overflow-hidden bg-gray-100">
-                                            <img
+                                            <LazyImage
                                                 src={bird.img}
                                                 alt={bird.cn}
                                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                                onError={(e) => { e.target.src=`https://placehold.co/600x450/FBFBFA/A1A1AA?text=${bird.cn}`; }}
+                                                skeletonClassName="rounded-none"
                                             />
                                             {/* 琥珀色动态徽章 */}
                                             <div className={`absolute top-6 right-6 px-5 py-2 rounded-full backdrop-blur-xl text-[10px] font-black tracking-[0.1em] text-white shadow-xl border border-white/20 ${
