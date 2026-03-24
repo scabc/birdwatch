@@ -330,6 +330,22 @@ body {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* 自定义滚动条 - 与主题统一 */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #F5F0E8; border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: #C49A3C; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #9A7A2E; }
+
+/* 输入框聚焦增强 */
+input:focus, textarea:focus {
+  outline: none;
+}
+
+/* 按钮点击反馈 */
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
 /* ============================================
    玻璃拟态 (Glassmorphism) 系统
    ============================================ */
