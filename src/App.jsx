@@ -9,6 +9,7 @@ import { SpeciesDetailModal, HabitatDetailModal, RegisterModal, ContactModal, Ti
 // 数据
 import { BIRD_DB, CR_BIRD_KEYS, ALL_BIRD_KEYS } from './data/birds';
 import { HABITAT_DB, MAP_NODES, SPRING_ROUTES, AUTUMN_ROUTES } from './data/habitats';
+import { TIMELINE_DATA } from './data/timeline';
 
 // Lucide React Icons
 import {
