@@ -909,33 +909,33 @@ const StorySection = () => {
 
                 {/* 🚀 航程志 - 超薄玻璃 HUD */}
                 <div className="absolute bottom-10 right-10 z-50 hidden lg:block pointer-events-auto">
-                    <div className="bg-white/40 backdrop-blur-2xl px-8 py-6 rounded-[2rem] border border-white/60 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] w-[20rem]">
-                        <div className="flex items-center justify-between mb-6 border-b border-gray-100/50 pb-4">
-                            <span className="text-lg font-serif font-black tracking-tight text-gray-800">航程志</span>
-                            <span className="text-[9px] font-bold text-amber-600 tracking-[0.2em] uppercase">LOG REV. 2025</span>
+                    <div className="glass-dark glow-amber p-8 rounded-[2rem] w-[20rem] transition-all duration-500">
+                        <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+                            <span className="text-lg font-serif font-black tracking-tight text-white">航程志</span>
+                            <span className="text-[9px] font-bold text-amber-400 tracking-[0.2em] uppercase">LOG REV. 2025</span>
                         </div>
 
                         <div className="grid grid-cols-2 gap-x-8 gap-y-6">
                             <div className="flex flex-col">
-                                <span className="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-1">Season</span>
-                                <span className="text-sm font-bold text-gray-800">{activeChapter.monthCn}</span>
+                                <span className="text-[8px] font-bold text-white/40 uppercase tracking-widest mb-1">Season</span>
+                                <span className="text-sm font-bold text-white">{activeChapter.monthCn}</span>
                             </div>
                             <div className="flex flex-col text-right">
-                                <span className="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-1">Weather</span>
-                                <span className="text-sm font-bold text-emerald-600">晴朗 · CLEAR</span>
+                                <span className="text-[8px] font-bold text-white/40 uppercase tracking-widest mb-1">Weather</span>
+                                <span className="text-sm font-bold text-emerald-400">晴朗 · CLEAR</span>
                             </div>
                             <div className="col-span-2">
-                                <span className="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-1">Location</span>
-                                <p className="text-lg font-serif font-bold text-gray-800 leading-none mb-1">{locCn}</p>
-                                <p className="text-[9px] font-medium text-gray-400 tracking-tighter uppercase">{locEn}</p>
+                                <span className="text-[8px] font-bold text-white/40 uppercase tracking-widest mb-1">Location</span>
+                                <p className="text-lg font-serif font-bold text-white leading-none mb-1">{locCn}</p>
+                                <p className="text-[9px] font-medium text-white/40 tracking-tighter uppercase">{locEn}</p>
                             </div>
                             <div className="col-span-2 pt-2">
-                                <div className="flex justify-between items-end mb-1.5 text-[8px] font-bold text-gray-400 uppercase">
+                                <div className="flex justify-between items-end mb-1.5 text-[8px] font-bold text-white/40 uppercase">
                                     <span>Progress</span>
-                                    <span className="text-amber-600">{Math.round(((activeChapterIndex + 1) / activeBird.chapters.length) * 100)}%</span>
+                                    <span className="text-amber-400">{Math.round(((activeChapterIndex + 1) / activeBird.chapters.length) * 100)}%</span>
                                 </div>
-                                <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
-                                    <div className="h-full bg-amber-500 transition-all duration-300 ease-out" style={{ width: `${((activeChapterIndex + 1) / activeBird.chapters.length) * 100}%` }}></div>
+                                <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                    <div className="h-full bg-gradient-to-r from-amber-400 to-amber-500 transition-all duration-500 ease-out rounded-full" style={{ width: `${((activeChapterIndex + 1) / activeBird.chapters.length) * 100}%` }}></div>
                                 </div>
                             </div>
                         </div>
@@ -973,9 +973,9 @@ const StorySection = () => {
                                                 {chapter.text}
                                             </p>
 
-                                            <div className="inline-flex flex-col px-10 py-6 bg-white shadow-xl rounded-[2.5rem] border border-gray-50">
+                                            <div className="glass glow-amber-hover inline-flex flex-col px-10 py-6 rounded-[2.5rem] transition-all duration-500">
                                                 <div className="flex items-center gap-3 mb-2">
-                                                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                                                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse-glow"></div>
                                                     <span className="text-xl font-serif font-bold text-gray-900 leading-none">{cCn}</span>
                                                 </div>
                                                 <span className="text-[9px] font-bold text-gray-400 tracking-[0.25em] uppercase ml-5 italic">{cEn}</span>
@@ -1032,14 +1032,14 @@ const DiscoveryHub = ({ seenBirds }) => {
                     </Observer>
 
                     {/* 观测记录统计看板 */}
-                    <div className="bg-white p-12 rounded-[3.5rem] border border-gray-100 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.08)] flex flex-col min-w-[420px] relative overflow-hidden group">
+                    <Observer variant="fade-in-right" className="glass lift-hover p-12 rounded-[3.5rem] border border-white/20 flex flex-col min-w-[420px] relative overflow-hidden group">
                          <div className="flex justify-between items-center mb-10">
-                            <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600 shadow-inner">
+                            <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600 shadow-inner animate-pulse-glow">
                                 <Award size={32} />
                             </div>
                             <div className="text-right">
-                                <span className="text-[10px] font-black text-gray-300 uppercase tracking-widest block mb-1">Rank / 观测等级</span>
-                                <span className="text-sm font-bold text-gray-800 bg-gray-50 px-3 py-1 rounded-md border border-gray-100">首席观测员 / LEAD OBSERVER</span>
+                                <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest block mb-1">Rank / 观测等级</span>
+                                <span className="text-sm font-bold text-gray-700 bg-white/60 px-3 py-1 rounded-md border border-white/40">首席观测员 / LEAD OBSERVER</span>
                             </div>
                         </div>
                         <div className="flex items-end gap-3 mb-8">
@@ -1049,12 +1049,12 @@ const DiscoveryHub = ({ seenBirds }) => {
                                 <span className="text-[10px] font-black text-amber-600 uppercase tracking-tighter">Verified Signals</span>
                             </div>
                         </div>
-                        <div className="w-full h-2 bg-gray-50 rounded-full overflow-hidden mb-4">
-                            <div className="h-full bg-gradient-to-r from-amber-500 via-emerald-500 to-emerald-600 transition-all duration-300 ease-out" 
+                        <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
+                            <div className="h-full bg-gradient-to-r from-amber-500 via-emerald-500 to-emerald-600 transition-all duration-500 ease-out rounded-full animate-pulse-glow"
                                  style={{ width: `${(seenBirds.size / Object.keys(BIRD_DB).length) * 100}%` }}></div>
                         </div>
                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">Archive Completion Index: {Math.round((seenBirds.size / Object.keys(BIRD_DB).length) * 100)}%</p>
-                    </div>
+                    </Observer>
                 </div>
 
                 {/* --- 2. 纵向堆叠工作站 --- */}
@@ -1121,7 +1121,7 @@ const AcousticStationLab = () => {
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
-            <div className="lg:col-span-7 bg-white rounded-[4rem] border border-gray-100 shadow-xl p-16 flex flex-col items-center justify-center relative min-h-[550px] overflow-hidden group">
+            <Observer variant="fade-in-left" className="lg:col-span-7 glass lift-hover rounded-[4rem] border border-white/20 p-16 flex flex-col items-center justify-center relative min-h-[550px] overflow-hidden group">
                 <div className="relative z-10">
                     <button
                         onClick={() => {
@@ -1129,7 +1129,7 @@ const AcousticStationLab = () => {
                             else audioRef.current?.play();
                             setIsAudioPlaying(!isAudioPlaying);
                         }}
-                        className={`w-32 h-32 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 ${isAudioPlaying ? 'bg-amber-500 scale-110' : 'bg-[#1F2937] hover:scale-105'}`}
+                        className={`w-32 h-32 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 ${isAudioPlaying ? 'bg-amber-500 scale-110 animate-pulse-glow' : 'bg-[#1F2937] hover:scale-105 glow-amber'}`}
                     >
                         {isAudioPlaying ? <Pause size={48} className="text-white" /> : <Play size={48} className="text-white ml-2" />}
                     </button>
@@ -1142,13 +1142,13 @@ const AcousticStationLab = () => {
                     </div>
                     <div className="flex gap-1.5 h-16 items-center">
                         {[...Array(40)].map((_, i) => (
-                            <div key={i} className={`flex-grow rounded-full transition-all duration-300 ${isAudioPlaying ? 'bg-amber-500' : 'bg-gray-100 h-1'}`}
+                            <div key={i} className={`flex-grow rounded-full transition-all duration-300 ${isAudioPlaying ? 'bg-amber-500' : 'bg-white/40 h-1'}`}
                                  style={{ height: isAudioPlaying ? `${Math.random() * 100}%` : '4px' }}></div>
                         ))}
                     </div>
                 </div>
-            </div>
-            <div className="lg:col-span-5 flex flex-col justify-center gap-6">
+            </Observer>
+            <Observer variant="fade-in-right" className="lg:col-span-5 flex flex-col justify-center gap-6">
                 <div className="mb-4">
                     <span className="text-[10px] font-black text-amber-600 uppercase tracking-widest">Interpretation / 信号解译</span>
                     <h4 className="text-2xl font-serif font-black text-gray-900 mt-2">辨识采集到的声学特征：</h4>
@@ -1158,10 +1158,10 @@ const AcousticStationLab = () => {
                         key={bird.id}
                         disabled={gameState === 'revealed'}
                         onClick={() => { setGameState('revealed'); setIsAudioPlaying(false); audioRef.current?.pause(); }}
-                        className={`p-8 rounded-[2.5rem] border-2 text-left flex justify-between items-center transition-all duration-500 ${
+                        className={`p-8 rounded-[2.5rem] border-2 text-left flex justify-between items-center transition-all duration-500 lift-hover ${
                             gameState === 'revealed'
-                            ? (bird.id === currentBird?.id ? 'bg-emerald-500 border-emerald-500 text-white shadow-xl' : 'bg-gray-100 border-transparent opacity-40')
-                            : 'bg-white border-gray-100 hover:border-amber-400 hover:translate-x-4'
+                            ? (bird.id === currentBird?.id ? 'glass border-emerald-400 text-white shadow-xl' : 'bg-gray-100 border-transparent opacity-40')
+                            : 'glass border-white/40 hover:border-amber-400/50 hover:translate-x-4'
                         }`}
                     >
                         <div className="flex flex-col">
@@ -1171,11 +1171,11 @@ const AcousticStationLab = () => {
                     </button>
                 ))}
                 {gameState === 'revealed' && (
-                    <button onClick={startRound} className="mt-6 w-full py-5 bg-gray-900 text-white rounded-[2rem] font-bold text-sm tracking-widest hover:bg-amber-600 transition-colors animate-reveal uppercase">
+                    <button onClick={startRound} className="mt-6 w-full py-5 glass-dark text-white rounded-[2rem] font-bold text-sm tracking-widest hover:bg-amber-600 transition-colors animate-reveal uppercase">
                         Next Signal / 下一段信号
                     </button>
                 )}
-            </div>
+            </Observer>
         </div>
     );
 };
@@ -1364,33 +1364,33 @@ const TimelineSection = ({ onSelectEvent }) => {
                                     >
                                         {/* 时间原点图标 */}
                                         <div className="absolute left-10 md:left-1/2 -translate-x-1/2 mt-2 z-10">
-                                            <div className="w-14 h-14 rounded-full bg-white border-4 border-gray-50 shadow-md flex items-center justify-center text-amber-500 group-hover:bg-amber-600 group-hover:text-white group-hover:scale-125 transition-all duration-500">
+                                            <div className="w-14 h-14 rounded-full glass border-2 border-white/20 shadow-lg flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-white group-hover:scale-125 transition-all duration-500">
                                                 <Icon name={item.icon} size={20} strokeWidth={2.5} />
                                             </div>
                                         </div>
 
                                         <div className="hidden md:block md:w-1/2"></div>
                                         <div className={`w-full md:w-1/2 pl-28 md:pl-0 ${index % 2 === 0 ? 'md:pr-28 md:text-right' : 'md:pl-28'}`}>
-                                            <div className="bg-white p-14 rounded-[4rem] border border-gray-50 hover:border-amber-200 hover:shadow-[0_80px_150px_-50px_rgba(245,158,11,0.15)] transition-all duration-300 relative overflow-hidden group/card">
+                                            <div className="glass lift-hover p-14 rounded-[4rem] border border-white/40 hover:border-amber-200/50 transition-all duration-500 relative overflow-hidden group/card">
                                                 {/* 年份巨型水印 */}
-                                                <span className={`absolute -top-10 font-serif font-black text-gray-50 text-[10rem] -z-10 select-none transition-colors group-hover/card:text-amber-50/50 ${index % 2 === 0 ? '-right-10' : '-left-10'}`}>
+                                                <span className={`absolute -top-10 font-serif font-black text-gray-100 text-[10rem] -z-10 select-none transition-colors group-hover/card:text-amber-100/30 ${index % 2 === 0 ? '-right-10' : '-left-10'}`}>
                                                     {item.year}
                                                 </span>
-                                                
+
                                                 <div className={`flex items-center gap-5 mb-8 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
-                                                    <span className="text-4xl font-serif font-black text-amber-600">{item.year}</span>
-                                                    <span className="w-2.5 h-2.5 rounded-full bg-gray-100"></span>
-                                                    <span className="text-[13px] font-black text-gray-300 uppercase tracking-[0.3em]">{item.categoryEn}</span>
+                                                    <span className="text-4xl font-serif font-black text-amber-500">{item.year}</span>
+                                                    <span className="w-2.5 h-2.5 rounded-full bg-gray-200"></span>
+                                                    <span className="text-[13px] font-black text-gray-400 uppercase tracking-[0.3em]">{item.categoryEn}</span>
                                                 </div>
 
-                                                <h3 className="text-3xl font-bold text-gray-900 mb-8 group-hover/card:text-amber-600 transition-colors leading-tight">
+                                                <h3 className="text-3xl font-bold text-gray-900 mb-8 group-hover/card:text-amber-600 transition-colors duration-300 leading-tight">
                                                     {item.title}
                                                 </h3>
                                                 <p className="text-lg text-gray-500 leading-relaxed font-serif opacity-80 mb-10 line-clamp-2">
                                                     {item.desc}
                                                 </p>
-                                                
-                                                <div className={`flex items-center gap-4 text-xs font-black text-amber-600 uppercase tracking-[0.3em] opacity-0 group-hover/card:opacity-100 translate-y-4 group-hover/card:translate-y-0 transition-all duration-300 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
+
+                                                <div className={`flex items-center gap-4 text-xs font-black text-amber-500 uppercase tracking-[0.3em] opacity-0 group-hover/card:opacity-100 translate-y-4 group-hover/card:translate-y-0 transition-all duration-300 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
                                                     <span>Open Archival File / 查阅完整档案</span>
                                                     <ArrowRight size={16} />
                                                 </div>
@@ -1512,21 +1512,21 @@ const SpeciesGallery = ({ onSelectBird }) => {
                         {filteredBirds.map((bird, i) => {
                             const isCR = bird.status === 'CR';
                             return (
-                                <Observer key={bird.id} delay={i * 50}>
-                                    <div 
+                                <Observer key={bird.id} delay={i * 50} variant="fade-in-scale">
+                                    <div
                                         onClick={() => onSelectBird(bird.id)}
-                                        className="group cursor-pointer bg-white rounded-[3.5rem] border border-gray-50 overflow-hidden transition-all duration-300 hover:-translate-y-4 hover:shadow-[0_60px_100px_-40px_rgba(0,0,0,0.1)]"
+                                        className="glass lift-hover rounded-[3.5rem] border border-white/40 overflow-hidden transition-all duration-500 cursor-pointer group"
                                     >
                                         <div className="relative aspect-[11/9] overflow-hidden bg-gray-100">
-                                            <img 
-                                                src={bird.img} 
+                                            <img
+                                                src={bird.img}
                                                 alt={bird.cn}
-                                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                                 onError={(e) => { e.target.src=`https://placehold.co/600x450/FBFBFA/A1A1AA?text=${bird.cn}`; }}
                                             />
                                             {/* 琥珀色动态徽章 */}
-                                            <div className={`absolute top-6 right-6 px-5 py-2 rounded-full backdrop-blur-md text-[10px] font-black tracking-[0.1em] text-white shadow-xl ${
-                                                isCR ? 'bg-[#A0522D]/90' : 'bg-[#D9A22E]/90'
+                                            <div className={`absolute top-6 right-6 px-5 py-2 rounded-full backdrop-blur-xl text-[10px] font-black tracking-[0.1em] text-white shadow-xl border border-white/20 ${
+                                                isCR ? 'bg-[#A0522D]/80' : 'bg-[#D9A22E]/80'
                                             }`}>
                                                 <div className="flex items-center gap-2">
                                                     <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
@@ -1538,29 +1538,29 @@ const SpeciesGallery = ({ onSelectBird }) => {
                                         <div className="p-12">
                                             <div className="flex justify-between items-start mb-6">
                                                 <div className="flex flex-col">
-                                                    <h3 className="text-3xl font-serif font-black text-gray-900 mb-1.5 group-hover:text-amber-600 transition-colors">
+                                                    <h3 className="text-3xl font-serif font-black text-gray-900 mb-1.5 group-hover:text-amber-500 transition-colors duration-300">
                                                         {bird.cn}
                                                     </h3>
-                                                    <span className="text-[10px] font-bold text-gray-300 tracking-[0.2em] uppercase italic leading-none">
+                                                    <span className="text-[10px] font-bold text-gray-400 tracking-[0.2em] uppercase italic leading-none">
                                                         {bird.en}
                                                     </span>
                                                 </div>
-                                                <div className="w-10 h-10 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-200 group-hover:bg-amber-50 group-hover:text-amber-500 transition-all duration-500">
+                                                <div className="w-10 h-10 rounded-2xl glass flex items-center justify-center text-gray-300 group-hover:text-amber-500 transition-all duration-500">
                                                     <ArrowRight size={18} className="-rotate-45 group-hover:rotate-0 transition-transform" />
                                                 </div>
                                             </div>
-                                            
+
                                             <p className="text-gray-500 text-base font-serif leading-[1.8] opacity-80 line-clamp-2 mb-10 max-w-[90%]">
                                                 {bird.descCn}
                                             </p>
 
-                                            <div className="flex items-center gap-8 pt-8 border-t border-gray-50">
+                                            <div className="flex items-center gap-8 pt-8 border-t border-gray-100">
                                                 <div className="flex flex-col">
-                                                    <span className="text-[9px] font-black text-gray-300 uppercase tracking-widest mb-1.5">种群估算 · POPULATION</span>
+                                                    <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1.5">种群估算 · POPULATION</span>
                                                     <span className="text-sm font-bold text-gray-700 font-serif">{bird.pop ? bird.pop.toLocaleString() : '未知'}</span>
                                                 </div>
                                                 <div className="flex flex-col">
-                                                    <span className="text-[9px] font-black text-gray-300 uppercase tracking-widest mb-1.5">主要分布 · RANGE</span>
+                                                    <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1.5">主要分布 · RANGE</span>
                                                     <span className="text-sm font-bold text-gray-700 font-serif">{bird.range === 'Global' ? '全球性分布' : '东亚迁飞区'}</span>
                                                 </div>
                                             </div>
