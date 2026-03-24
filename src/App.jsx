@@ -1989,13 +1989,6 @@ function App() {
 
             {/* 1. 导航栏 (优化版) */}
             <nav className="sticky top-0 z-50 px-6 md:px-10 py-4 flex justify-between items-center glass border-b border-white/20 transition-all duration-300">
-                {/* IP 形象 - 导航栏左侧边缘 */}
-                <div className="absolute left-4 top-full -mt-2 z-40 w-16 overflow-hidden pointer-events-none">
-                    <div className="overflow-hidden h-16">
-                        <img src="/1@288x.png" alt="" className="w-full object-contain" />
-                    </div>
-                </div>
-
                 <BrandLogo />
 
                 <div className="hidden lg:flex items-center gap-10">
