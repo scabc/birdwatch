@@ -1917,6 +1917,7 @@ function App() {
     const [showRegister, setShowRegister] = useState(false);
     const [showContact, setShowContact] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     // 平滑滚动到锚点
     const scrollToSection = (id) => {
@@ -2001,15 +2002,58 @@ function App() {
                 <div className="flex items-center gap-4">
                     <button
                         onClick={() => setShowRegister(true)}
-                        className="px-6 py-2.5 bg-[#4A4238] text-[#F9F8F4] text-[10px] font-bold uppercase tracking-[0.15em] rounded-full hover:bg-[#D9A22E] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                        className="hidden md:block px-6 py-2.5 bg-[#4A4238] text-[#F9F8F4] text-[10px] font-bold uppercase tracking-[0.15em] rounded-full hover:bg-[#D9A22E] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
                     >
                         Join Us
+                    </button>
+                    {/* Mobile Menu Button */}
+                    <button
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-full hover:bg-gray-100 transition-colors"
+                    >
+                        <span className={`block w-5 h-0.5 bg-[#4A4238] transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                        <span className={`block w-5 h-0.5 bg-[#4A4238] transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
+                        <span className={`block w-5 h-0.5 bg-[#4A4238] transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
                     </button>
                 </div>
 
                 {/* 顶部阅读进度条 */}
                 <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-amber-500 to-amber-400" style={{width: `${scrollProgress * 100}%`}}></div>
             </nav>
+
+            {/* Mobile Menu Overlay */}
+            <div className={`fixed inset-0 z-[700] transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+                <div className="absolute inset-0 bg-[#3D4A3A]/80 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)}></div>
+                <div className={`absolute right-0 top-0 h-full w-[280px] bg-white shadow-2xl transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                    <div className="p-8 pt-20">
+                        <div className="space-y-6">
+                            {NAV_LINKS.map((link, i) => (
+                                <button
+                                    key={link.id}
+                                    onClick={() => {
+                                        scrollToSection(link.id);
+                                        setMobileMenuOpen(false);
+                                    }}
+                                    className="block w-full text-left py-3 border-b border-gray-100 group"
+                                    style={{ transitionDelay: `${i * 50}ms` }}
+                                >
+                                    <span className="text-2xl font-serif font-black text-gray-900 group-hover:text-amber-500 transition-colors">{link.cn}</span>
+                                    <span className="block text-xs font-serif italic text-gray-400 mt-1">{link.en}</span>
+                                </button>
+                            ))}
+                        </div>
+                        <button
+                            onClick={() => {
+                                setShowRegister(true);
+                                setMobileMenuOpen(false);
+                            }}
+                            className="mt-10 w-full py-4 bg-amber-500 text-white font-bold rounded-full hover:bg-amber-600 transition-colors"
+                        >
+                            立即加入
+                        </button>
+                    </div>
+                </div>
+            </div>
 
             {/* 2. Hero 区域 (极致纯净社论版) */}
                 <section className="relative h-screen w-full bg-[#F9F8F4] overflow-hidden group/hero">
