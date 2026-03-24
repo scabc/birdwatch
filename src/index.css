@@ -318,6 +318,15 @@ body {
   animation: breathe 10s ease-in-out infinite;
 }
 
+/* 骨架屏闪烁动画 */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton-shimmer {
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
 /* --- 辅助工具类 --- */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
