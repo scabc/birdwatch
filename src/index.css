@@ -212,6 +212,53 @@ body {
 .font-semibold { font-weight: 600; }
 .font-medium { font-weight: 500; }
 
+/* ============================================
+   视差滚动效果 (Parallax)
+   ============================================ */
+
+.parallax-container {
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+  perspective-origin: center center;
+}
+
+.parallax-slow {
+  transform: translateZ(-1px) scale(1.5);
+  will-change: transform;
+}
+
+.parallax-slower {
+  transform: translateZ(-2px) scale(2);
+  will-change: transform;
+}
+
+.parallax-faster {
+  transform: translateZ(0.5px) scale(0.75);
+  will-change: transform;
+}
+
+/* 简单的 CSS-only 视差 */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* 滚动视差装饰元素 */
+.parallax-element {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+/* 视差层级 */
+.depth-0 { transform: translateZ(0); }
+.depth-1 { transform: translateZ(-1px) scale(1.5); }
+.depth-2 { transform: translateZ(-2px) scale(2); }
+.depth-3 { transform: translateZ(-3px) scale(2.5); }
+
 /* --- 核心交互动画类 --- */
 
 @keyframes scan {

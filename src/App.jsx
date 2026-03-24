@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useMemo, lazy, Suspense } from 'rea
 
 // 共享组件
 import { Observer, Icon, BrandLogo, ErrorBoundary } from './components/Shared';
+import { useParallax, useParallaxBackground } from './hooks';
 
 // Modals
 import { SpeciesDetailModal, HabitatDetailModal, RegisterModal, ContactModal, TimelineDetailModal } from './components/Modals';
@@ -1595,6 +1596,9 @@ const SpeciesGallery = ({ onSelectBird }) => {
 // 新增：呼吁行动板块 (Call to Action)
 // ==========================================
 const FinalActionSection = ({ onJoin }) => {
+    const birdOffset = useParallaxBackground(0.15);
+    const featherOffset = useParallaxBackground(0.25);
+
     return (
         <section className="relative py-32 bg-[#1F2937] overflow-hidden">
             {/* 动态背景纹理 */}
@@ -1602,16 +1606,25 @@ const FinalActionSection = ({ onJoin }) => {
                  style={{ backgroundImage: `radial-gradient(#F9F8F4 1px, transparent 1px)`, backgroundSize: '40px 40px' }}>
             </div>
 
-            {/* 飞鸟装饰 */}
-            <div className="absolute top-10 left-10 text-white/5 animate-pulse duration-[5s]">
+            {/* 飞鸟装饰 - 带视差 */}
+            <div
+                className="absolute top-10 left-10 text-white/5 animate-pulse duration-[5s] parallax-element"
+                style={{ transform: `translateY(${birdOffset}px)` }}
+            >
                 <Bird size={200} strokeWidth={0.5} />
             </div>
-            <div className="absolute bottom-0 right-0 text-white/5 rotate-180">
+            <div
+                className="absolute bottom-0 right-0 text-white/5 rotate-180 parallax-element"
+                style={{ transform: `translateY(${-featherOffset}px)` }}
+            >
                 <Feather size={300} strokeWidth={0.5} />
             </div>
 
-            {/* 光晕装饰 */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+            {/* 光晕装饰 - 带视差 */}
+            <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[150px] pointer-events-none parallax-element"
+                style={{ transform: `translateY(${featherOffset * 0.5}px)` }}
+            ></div>
 
             <div className="max-w-4xl mx-auto px-12 relative z-10 text-center">
                 <Observer>
