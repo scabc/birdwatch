@@ -463,19 +463,13 @@ const MigrationMap = ({ onNodeClick }) => {
 
     return (
         <section id="map" className="py-32 bg-[#FCFBFA] relative overflow-hidden">
-            {/* IP 形象背景装饰 - 位于地图容器后，只露出上半部分 */}
-            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                <div className="absolute -bottom-20 left-[5%] w-48 opacity-15">
-                    <img src="/1@288x.png" alt="" className="w-full object-contain" />
-                </div>
-                <div className="absolute -bottom-16 right-[8%] w-40 opacity-12">
-                    <img src="/2@288x.png" alt="" className="w-full object-contain" />
-                </div>
-                <div className="absolute -bottom-24 left-[25%] w-32 opacity-10">
-                    <img src="/3@288x.png" alt="" className="w-full object-contain" />
-                </div>
-                <div className="absolute -bottom-20 right-[25%] w-36 opacity-12">
-                    <img src="/4@288x.png" alt="" className="w-full object-contain" />
+            {/* IP 形象装饰 - 位于标题区域右侧边缘，只露出上半身 */}
+            <div className="absolute top-16 right-[2%] z-10 w-32 overflow-hidden pointer-events-none">
+                <div className="relative">
+                    {/* 身体被容器遮挡，只露头 */}
+                    <div className="overflow-hidden h-28">
+                        <img src={`/${Math.floor(Math.random() * 4) + 1}@288x.png`} alt="" className="w-full object-contain" />
+                    </div>
                 </div>
             </div>
 
@@ -1995,6 +1989,13 @@ function App() {
 
             {/* 1. 导航栏 (优化版) */}
             <nav className="sticky top-0 z-50 px-6 md:px-10 py-4 flex justify-between items-center glass border-b border-white/20 transition-all duration-300">
+                {/* IP 形象 - 导航栏左侧边缘 */}
+                <div className="absolute left-4 top-full -mt-2 z-40 w-16 overflow-hidden pointer-events-none">
+                    <div className="overflow-hidden h-16">
+                        <img src={`/${Math.floor(Math.random() * 4) + 1}@288x.png`} alt="" className="w-full object-contain" />
+                    </div>
+                </div>
+
                 <BrandLogo />
 
                 <div className="hidden lg:flex items-center gap-10">
