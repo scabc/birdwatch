@@ -468,7 +468,7 @@ const MigrationMap = ({ onNodeClick }) => {
                 <div className="relative">
                     {/* 身体被容器遮挡，只露头 */}
                     <div className="overflow-hidden h-28">
-                        <img src={`/${Math.floor(Math.random() * 4) + 1}@288x.png`} alt="" className="w-full object-contain" />
+                        <img src="/1@288x.png" alt="" className="w-full object-contain" />
                     </div>
                 </div>
             </div>
@@ -1992,7 +1992,7 @@ function App() {
                 {/* IP 形象 - 导航栏左侧边缘 */}
                 <div className="absolute left-4 top-full -mt-2 z-40 w-16 overflow-hidden pointer-events-none">
                     <div className="overflow-hidden h-16">
-                        <img src={`/${Math.floor(Math.random() * 4) + 1}@288x.png`} alt="" className="w-full object-contain" />
+                        <img src="/1@288x.png" alt="" className="w-full object-contain" />
                     </div>
                 </div>
 
