@@ -1,0 +1,119 @@
+/* ==========================================
+   1. 字体定义 (确保你的设计质感)
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@500;700&family=Noto+Serif+SC:wght@400;700;900&display=swap');
+
+:root {
+  --bg-color: #FCFBFA; /* 极浅纸张色 */
+  --text-main: #1F2937;
+  --accent: #D9A22E;
+  --forest: #465B49;
+}
+
+/* 重置基础样式 */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left; /* 覆盖默认的 center */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* ==========================================
+   2. 字体类 (与 JSX 中的类名对应)
+   ========================================== */
+.font-serif {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+}
+
+.font-sans {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ==========================================
+   3. 核心交互动画 (Hero & Components)
+   ========================================== */
+
+/* Hero 背景呼吸效果 */
+@keyframes breathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.45; }
+}
+
+.animate-breathe {
+  animation: breathe 10s ease-in-out infinite;
+}
+
+/* 航迹虚线流动 */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -100; }
+}
+
+.animate-dash-flow {
+  stroke-dasharray: 10;
+  animation: dash-flow 15s linear infinite;
+}
+
+/* 揭晓图片的优雅淡入 */
+@keyframes reveal {
+  from { opacity: 0; filter: blur(10px); transform: scale(1.1); }
+  to { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+
+.animate-reveal {
+  animation: reveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ==========================================
+   4. UI 细节优化
+   ========================================== */
+
+/* 隐藏滚动条但保留功能 */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 弹窗毛玻璃背景 */
+.modal-bg {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 自定义选中文本颜色 */
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* 优雅的平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==========================================
+   5. 响应式微调
+   ========================================== */
+@media (max-width: 768px) {
+  .text-9xl {
+    font-size: 4rem;
+    line-height: 1;
+  }
+}

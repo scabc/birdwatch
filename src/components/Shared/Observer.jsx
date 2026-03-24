@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-const Observer = ({ children, className = '', delay = 0 }) => {
+const Observer = ({ children, className = '', delay = 0, variant = 'fade-in-up' }) => {
     const ref = useRef(null);
     useEffect(() => {
         const observer = new IntersectionObserver(([entry]) => {
@@ -15,7 +15,7 @@ const Observer = ({ children, className = '', delay = 0 }) => {
         return () => observer.disconnect();
     }, [delay]);
 
-    return <div ref={ref} className={`fade-in-up ${className}`}>{children}</div>;
+    return <div ref={ref} className={`${variant} ${className}`}>{children}</div>;
 };
 
 export default Observer;

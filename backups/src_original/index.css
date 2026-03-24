@@ -1,0 +1,104 @@
+/* 1. 所有的 @import 必须放在最顶部 */
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;700&family=Noto+Serif+SC:wght@700;900&display=swap');
+
+/* 2. 然后是设计令牌定义 (Tailwind v4 @theme) */
+@theme {
+  /* 配色方案 */
+  --color-bg: #F8F7F4;
+  --color-fg: #465B49;
+  --color-accent: #D9A22E;
+  --color-secondary-accent: #5F855C; 
+  --color-card: #FFFFFF;
+  --color-danger: #A0522D;
+  --color-neutral_sub: #A1A1AA;
+  --color-map_light: #EAEAEA;
+  --color-cr-tag: #A0522D;
+  --color-en-tag: #D9A22E;
+
+  /* 字体家族 */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', 'Noto Serif SC', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* 阴影 */
+  --shadow-soft: 0 6px 20px -5px rgba(0, 0, 0, 0.08);
+  --shadow-md-soft: 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* 3. 最后是自定义样式和动画关键帧 */
+
+/* 全局基础样式 */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+/* --- 核心交互动画类 --- */
+
+@keyframes scan {
+  0% { top: 0; opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { top: 100%; opacity: 0; }
+}
+.animate-scan {
+  animation: scan 3s linear infinite;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes modal-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modal-slide-in { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.modal-bg { animation: modal-fade-in 0.3s ease-out forwards; }
+.modal-content { animation: modal-slide-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+@keyframes text-reveal {
+  0% { opacity: 0; transform: translateY(20px); filter: blur(10px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+.animate-reveal {
+  animation: text-reveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes ripple-wave {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+.animate-ripple {
+  animation: ripple-wave 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@keyframes dash-flow {
+  to { stroke-dashoffset: -100; }
+}
+.animate-dash-flow {
+  animation: dash-flow 20s linear infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.1); }
+}
+.animate-breathe {
+  animation: breathe 10s ease-in-out infinite;
+}
+
+/* --- 辅助工具类 --- */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.bg-secondary_accent\/10 { background-color: rgba(95, 133, 92, 0.1); }
+.border-secondary_accent\/20 { border-color: rgba(95, 133, 92, 0.2); }

@@ -100,5 +100,148 @@ body {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* ============================================
+   玻璃拟态 (Glassmorphism) 系统
+   ============================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-dark {
+  background: rgba(30, 30, 30, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-amber {
+  background: rgba(217, 162, 46, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(217, 162, 46, 0.2);
+}
+
+/* 悬浮发光效果 */
+.glow-amber {
+  box-shadow:
+    0 0 20px rgba(217, 162, 46, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.glow-amber-hover:hover {
+  box-shadow:
+    0 0 30px rgba(217, 162, 46, 0.25),
+    0 12px 48px rgba(0, 0, 0, 0.12);
+  border-color: rgba(217, 162, 46, 0.3);
+}
+
+/* ============================================
+   增强动画系统
+   ============================================ */
+
+/* 入场动画变体 */
+.fade-in-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-in-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fade-in-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fade-in-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 卡片悬浮效果 */
+.lift-hover {
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.lift-hover:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* 交错动画延迟 */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* 脉冲呼吸光晕 */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(217, 162, 46, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(217, 162, 46, 0.4);
+  }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* 边框流光 */
+@keyframes border-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.border-gradient-animated {
+  background: linear-gradient(90deg,
+    rgba(217, 162, 46, 0.3),
+    rgba(217, 162, 46, 0.1),
+    rgba(217, 162, 46, 0.3)
+  );
+  background-size: 200% 100%;
+  animation: border-flow 3s linear infinite;
+}
+
+/* 文字渐入闪烁 */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.text-shimmer {
+  background: linear-gradient(90deg,
+    var(--color-fg) 0%,
+    var(--color-accent) 50%,
+    var(--color-fg) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
 .bg-secondary_accent\/10 { background-color: rgba(95, 133, 92, 0.1); }
 .border-secondary_accent\/20 { border-color: rgba(95, 133, 92, 0.2); }
