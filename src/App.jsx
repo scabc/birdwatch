@@ -1598,10 +1598,10 @@ const FinalActionSection = ({ onJoin }) => {
     return (
         <section className="relative py-32 bg-[#1F2937] overflow-hidden">
             {/* 动态背景纹理 */}
-            <div className="absolute inset-0 opacity-10" 
+            <div className="absolute inset-0 opacity-10"
                  style={{ backgroundImage: `radial-gradient(#F9F8F4 1px, transparent 1px)`, backgroundSize: '40px 40px' }}>
             </div>
-            
+
             {/* 飞鸟装饰 */}
             <div className="absolute top-10 left-10 text-white/5 animate-pulse duration-[5s]">
                 <Bird size={200} strokeWidth={0.5} />
@@ -1610,18 +1610,21 @@ const FinalActionSection = ({ onJoin }) => {
                 <Feather size={300} strokeWidth={0.5} />
             </div>
 
+            {/* 光晕装饰 */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+
             <div className="max-w-4xl mx-auto px-12 relative z-10 text-center">
                 <Observer>
-                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                    <div className="glass-dark glow-amber inline-flex items-center gap-3 px-5 py-2 rounded-full mb-8">
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-glow"></div>
                         <span className="text-[10px] font-mono font-bold text-white uppercase tracking-[0.3em]">Join the Network</span>
                     </div>
 
                     <h2 className="text-5xl md:text-7xl font-serif font-black text-white mb-8 tracking-tight leading-tight">
                         成为它们的<br/>
-                        <span className="text-amber-500 italic relative inline-block">
+                        <span className="text-shimmer italic relative inline-block">
                             守望者
-                            <svg className="absolute -bottom-2 left-0 w-full h-3 text-amber-500/30" viewBox="0 0 100 10" preserveAspectRatio="none">
+                            <svg className="absolute -bottom-2 left-0 w-full h-3 text-amber-500/50" viewBox="0 0 100 10" preserveAspectRatio="none">
                                 <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="2" fill="none" />
                             </svg>
                         </span>
@@ -1630,15 +1633,15 @@ const FinalActionSection = ({ onJoin }) => {
                     <p className="text-lg md:text-xl text-gray-400 font-serif leading-relaxed mb-12 max-w-2xl mx-auto">
                         候鸟不需要护照，但它们需要安全的落脚点。<br/>
                         你的每一次观测、每一次分享、每一份关注，都在为这条数千公里的生命线注入力量。
-                        <span className="block mt-4 text-xs font-sans text-gray-600 uppercase tracking-widest">
+                        <span className="block mt-4 text-xs font-sans text-gray-500 uppercase tracking-widest">
                             They don't need passports, but they need sanctuary. Your witness is their shield.
                         </span>
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <button 
+                        <button
                             onClick={onJoin}
-                            className="group relative px-10 py-5 bg-white text-[#1F2937] rounded-full font-bold text-sm tracking-[0.2em] uppercase overflow-hidden hover:bg-amber-500 hover:text-white transition-all duration-300 shadow-[0_20px_50px_-10px_rgba(255,255,255,0.1)]"
+                            className="group relative px-10 py-5 glass text-[#1F2937] rounded-full font-bold text-sm tracking-[0.2em] uppercase overflow-hidden hover:bg-amber-500 hover:text-white transition-all duration-500 glow-amber-hover"
                         >
                             <span className="relative z-10 flex items-center gap-3">
                                 Join Now / 立即加入
@@ -1703,10 +1706,10 @@ const Footer = ({ onContactClick, onShowRegister }) => {
                                 {cn: '红色名录', en: 'RED LIST', id: 'species'},
                                 {cn: '观测实验室', en: 'LABORATORY', id: 'hub'}
                             ].map((link) => (
-                                <button 
-                                    key={link.id} 
+                                <button
+                                    key={link.id}
                                     onClick={() => scrollToSection(link.id)}
-                                    className="group text-[12px] font-bold text-gray-400 hover:text-amber-600 transition-colors text-left flex items-center gap-3"
+                                    className="group text-[12px] font-bold text-gray-400 hover:text-amber-600 transition-colors text-left flex items-center gap-3 lift-hover"
                                 >
                                     <span className="w-0 h-px bg-amber-500 group-hover:w-4 transition-all"></span>
                                     {link.cn}
@@ -1744,8 +1747,8 @@ const Footer = ({ onContactClick, onShowRegister }) => {
                         <div className="relative group max-w-[240px]">
                             <input 
                                 type="email" 
-                                placeholder="Observer Email..." 
-                                className="w-full bg-transparent border-b border-gray-200 py-2 text-[11px] font-mono focus:outline-none focus:border-amber-500 transition-colors"
+                                placeholder="Observer Email..."
+                                className="w-full bg-white/50 glass border border-white/30 rounded-lg py-2 px-3 text-[11px] font-mono focus:outline-none focus:border-amber-500 transition-colors"
                             />
                             <button className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-300 hover:text-amber-500 transition-colors">
                                 <ArrowRight size={16} />
@@ -1764,7 +1767,7 @@ const Footer = ({ onContactClick, onShowRegister }) => {
                     {/* 实时状态模拟 */}
                     <div className="flex items-center gap-8 text-[9px] font-mono text-gray-400 tracking-[0.2em] uppercase">
                         <div className="flex items-center gap-2">
-                            <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse"></div>
+                            <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse-glow"></div>
                             <span>Data link established</span>
                         </div>
                         <div className="hidden sm:flex items-center gap-2">
@@ -1872,14 +1875,14 @@ function App() {
             `}</style>
 
             {/* 1. 导航栏 (优化版) */}
-            <nav className="sticky top-0 z-50 px-6 md:px-10 py-4 flex justify-between items-center bg-[#F9F8F4]/90 backdrop-blur-md border-b border-[#4A4238]/5 transition-all duration-300">
+            <nav className="sticky top-0 z-50 px-6 md:px-10 py-4 flex justify-between items-center glass border-b border-white/20 transition-all duration-300">
                 <BrandLogo />
-                
+
                 <div className="hidden lg:flex items-center gap-10">
                     {NAV_LINKS.map(link => (
-                         <button 
-                            key={link.id} 
-                            onClick={() => scrollToSection(link.id)} 
+                         <button
+                            key={link.id}
+                            onClick={() => scrollToSection(link.id)}
                             className="group relative h-8 overflow-hidden flex flex-col justify-center items-center w-20"
                          >
                             <span className="absolute text-sm font-bold text-[#5D554A] transition-all duration-500 group-hover:-translate-y-8 group-hover:opacity-0">
@@ -1894,16 +1897,16 @@ function App() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <button 
-                        onClick={() => setShowRegister(true)} 
+                    <button
+                        onClick={() => setShowRegister(true)}
                         className="px-6 py-2.5 bg-[#4A4238] text-[#F9F8F4] text-[10px] font-bold uppercase tracking-[0.15em] rounded-full hover:bg-[#D9A22E] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
                     >
                         Join Us
                     </button>
                 </div>
-                
+
                 {/* 顶部阅读进度条 */}
-                <div className="absolute bottom-0 left-0 h-[2px] bg-[#D9A22E]" style={{width: `${scrollProgress * 100}%`}}></div>
+                <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-amber-500 to-amber-400" style={{width: `${scrollProgress * 100}%`}}></div>
             </nav>
 
             {/* 2. Hero 区域 (极致纯净社论版) */}
@@ -1927,25 +1930,25 @@ function App() {
                         </svg>
                     </div>
 
-                    {/* 2. 精密 HUD 边角系统 (取代黑色装饰条) */}
+                    {/* 2. 精密 HUD 边角系统 (玻璃面板) */}
                     <div className="absolute inset-0 p-16 flex flex-col justify-between pointer-events-none z-20">
                         <div className="flex justify-between items-start">
-                            <div className="space-y-2">
+                            <div className="glass p-4 rounded-2xl space-y-2">
                                 <div className="flex items-center gap-3">
-                                    <div className="w-1 h-1 bg-amber-500 rounded-full animate-pulse"></div>
+                                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse-glow"></div>
                                     <p className="text-[10px] font-mono font-bold text-[#1F2937] uppercase tracking-[0.4em]">Tracking established</p>
                                 </div>
                                 <p className="text-[9px] font-mono text-gray-400 uppercase tracking-[0.3em] pl-4">31.2304° N // 121.4737° E</p>
                             </div>
-                            <div className="text-right">
+                            <div className="glass p-4 rounded-2xl text-right">
                                 <p className="text-[10px] font-mono font-black text-[#1F2937] uppercase tracking-[0.4em]">Archive Rev. 2025</p>
                                 <p className="text-[9px] font-mono text-gray-400 uppercase tracking-[0.3em] mt-1">EAAFP Global Link // Active</p>
                             </div>
                         </div>
-        
+
                         <div className="flex justify-between items-end">
-                            <div className="max-w-[200px] border-l border-gray-200 pl-6">
-                                <p className="text-[9px] font-serif italic text-gray-400 leading-relaxed tracking-wide">
+                            <div className="glass p-6 rounded-2xl max-w-[220px] border-l-2 border-amber-500/30">
+                                <p className="text-[9px] font-serif italic text-gray-500 leading-relaxed tracking-wide">
                                     "Every flight is a testament to the enduring will of life across the vast, changing blue."
                                 </p>
                             </div>
