@@ -2057,7 +2057,53 @@ function App() {
 
             {/* 2. Hero 区域 (极致纯净社论版) */}
                 <section className="relative h-screen w-full bg-[#F9F8F4] overflow-hidden group/hero">
-    
+
+                    {/* IP 形象浮动装饰 - 随机出现 */}
+                    <div
+                        className="fixed z-10 pointer-events-none opacity-40"
+                        style={{
+                            top: `${10 + (0 * 20)}%`,
+                            left: `${5}%`,
+                            width: '120px',
+                            transform: `translateY(${scrollProgress * 200}px)`
+                        }}
+                    >
+                        <img src="/1@288x.png" alt="" className="w-full object-contain" style={{ clipPath: 'inset(20% 0 30% 0)' }} />
+                    </div>
+                    <div
+                        className="fixed z-10 pointer-events-none opacity-35"
+                        style={{
+                            top: `${30 + (1 * 15)}%`,
+                            right: `${8}%`,
+                            width: '100px',
+                            transform: `translateY(${scrollProgress * -150}px)`
+                        }}
+                    >
+                        <img src="/2@288x.png" alt="" className="w-full object-contain" style={{ clipPath: 'inset(10% 0 40% 0)' }} />
+                    </div>
+                    <div
+                        className="fixed z-10 pointer-events-none opacity-30"
+                        style={{
+                            top: `${50 + (2 * 10)}%`,
+                            left: `${15}%`,
+                            width: '80px',
+                            transform: `translateY(${scrollProgress * 100}px)`
+                        }}
+                    >
+                        <img src="/3@288x.png" alt="" className="w-full object-contain" style={{ clipPath: 'inset(30% 0 20% 0)' }} />
+                    </div>
+                    <div
+                        className="fixed z-10 pointer-events-none opacity-35"
+                        style={{
+                            top: `${60 + (3 * 8)}%`,
+                            right: `${12}%`,
+                            width: '90px',
+                            transform: `translateY(${scrollProgress * -120}px)`
+                        }}
+                    >
+                        <img src="/4@288x.png" alt="" className="w-full object-contain" style={{ clipPath: 'inset(15% 0 35% 0)' }} />
+                    </div>
+
                     {/* 1. 实验室底座系统 (动态微纹理) */}
                     <div className="absolute inset-0 z-0 pointer-events-none">
                         {/* 精密网格：稍微调淡，增加呼吸感 */}
