@@ -463,7 +463,23 @@ const MigrationMap = ({ onNodeClick }) => {
 
     return (
         <section id="map" className="py-32 bg-[#FCFBFA] relative overflow-hidden">
-            <div className="max-w-[1440px] mx-auto px-12">
+            {/* IP 形象背景装饰 - 位于地图容器后，只露出上半部分 */}
+            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+                <div className="absolute -bottom-20 left-[5%] w-48 opacity-15">
+                    <img src="/1@288x.png" alt="" className="w-full object-contain" />
+                </div>
+                <div className="absolute -bottom-16 right-[8%] w-40 opacity-12">
+                    <img src="/2@288x.png" alt="" className="w-full object-contain" />
+                </div>
+                <div className="absolute -bottom-24 left-[25%] w-32 opacity-10">
+                    <img src="/3@288x.png" alt="" className="w-full object-contain" />
+                </div>
+                <div className="absolute -bottom-20 right-[25%] w-36 opacity-12">
+                    <img src="/4@288x.png" alt="" className="w-full object-contain" />
+                </div>
+            </div>
+
+            <div className="max-w-[1440px] mx-auto px-12 relative z-10">
                 
                 {/* --- 迁徙轨迹：统一标题系统 (字号 6xl) --- */}
                 <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-12 border-b border-gray-100 pb-12">
@@ -2057,52 +2073,6 @@ function App() {
 
             {/* 2. Hero 区域 (极致纯净社论版) */}
                 <section className="relative h-screen w-full bg-[#F9F8F4] overflow-hidden group/hero">
-
-                    {/* IP 形象浮动装饰 - 随机出现 */}
-                    <div
-                        className="fixed z-10 pointer-events-none opacity-40"
-                        style={{
-                            top: `${10 + (0 * 20)}%`,
-                            left: `${5}%`,
-                            width: '120px',
-                            transform: `translateY(${scrollProgress * 200}px)`
-                        }}
-                    >
-                        <img src="/1@288x.png" alt="" className="w-full object-contain" style={{ clipPath: 'inset(20% 0 30% 0)' }} />
-                    </div>
-                    <div
-                        className="fixed z-10 pointer-events-none opacity-35"
-                        style={{
-                            top: `${30 + (1 * 15)}%`,
-                            right: `${8}%`,
-                            width: '100px',
-                            transform: `translateY(${scrollProgress * -150}px)`
-                        }}
-                    >
-                        <img src="/2@288x.png" alt="" className="w-full object-contain" style={{ clipPath: 'inset(10% 0 40% 0)' }} />
-                    </div>
-                    <div
-                        className="fixed z-10 pointer-events-none opacity-30"
-                        style={{
-                            top: `${50 + (2 * 10)}%`,
-                            left: `${15}%`,
-                            width: '80px',
-                            transform: `translateY(${scrollProgress * 100}px)`
-                        }}
-                    >
-                        <img src="/3@288x.png" alt="" className="w-full object-contain" style={{ clipPath: 'inset(30% 0 20% 0)' }} />
-                    </div>
-                    <div
-                        className="fixed z-10 pointer-events-none opacity-35"
-                        style={{
-                            top: `${60 + (3 * 8)}%`,
-                            right: `${12}%`,
-                            width: '90px',
-                            transform: `translateY(${scrollProgress * -120}px)`
-                        }}
-                    >
-                        <img src="/4@288x.png" alt="" className="w-full object-contain" style={{ clipPath: 'inset(15% 0 35% 0)' }} />
-                    </div>
 
                     {/* 1. 实验室底座系统 (动态微纹理) */}
                     <div className="absolute inset-0 z-0 pointer-events-none">
