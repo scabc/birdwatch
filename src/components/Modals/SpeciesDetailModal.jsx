@@ -39,10 +39,10 @@ const SpeciesDetailModal = ({ birdId, onClose }) => {
     const themeColor = isCR ? '#A64B2A' : '#C49A3C';
 
     return (
-        <div className="fixed inset-0 z-[300] flex items-center justify-center p-8 md:p-16 lg:p-24 overflow-hidden">
-            <div className="absolute inset-0 bg-[#3D4A3A]/70 transition-opacity duration-300" onClick={onClose} />
+        <div className="fixed inset-0 z-[600] flex items-center justify-center p-8 md:p-16 lg:p-24 overflow-hidden">
+            <div className="absolute inset-0 bg-[#3D4A3A]/70 z-[599] transition-opacity duration-300" onClick={onClose} />
 
-            <div className="relative w-full max-w-5xl h-[82vh] bg-white rounded-[3rem] shadow-[0_80px_150px_-40px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col lg:flex-row modal-content border border-white/10">
+            <div className="relative w-full max-w-5xl h-[82vh] bg-white rounded-[3rem] shadow-[0_80px_150px_-40px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col lg:flex-row modal-content border border-white/10 z-[601]">
 
                 <div
                     ref={imageContainerRef}

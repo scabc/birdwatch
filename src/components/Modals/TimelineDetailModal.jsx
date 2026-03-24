@@ -5,10 +5,10 @@ const TimelineDetailModal = ({ event, onClose }) => {
     if (!event) return null;
 
     return (
-        <div className="fixed inset-0 z-[500] flex items-center justify-center p-6 lg:p-20 overflow-hidden">
-            <div className="absolute inset-0 bg-[#3D4A3A]/80 transition-opacity duration-300" onClick={onClose} />
+        <div className="fixed inset-0 z-[600] flex items-center justify-center p-6 lg:p-20 overflow-hidden">
+            <div className="absolute inset-0 bg-[#3D4A3A]/80 z-[599] transition-opacity duration-300" onClick={onClose} />
 
-            <div className="relative w-full max-w-5xl bg-white rounded-[3.5rem] shadow-[0_100px_200px_-50px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col modal-content h-[85vh] border border-white/20">
+            <div className="relative w-full max-w-5xl bg-white rounded-[3.5rem] shadow-[0_100px_200px_-50px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col modal-content h-[85vh] border border-white/20 z-[601]">
 
                 <div className="p-12 pb-0 flex justify-between items-start relative z-10 shrink-0">
                     <div className="space-y-4">

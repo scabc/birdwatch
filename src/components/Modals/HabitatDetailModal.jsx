@@ -7,9 +7,9 @@ const HabitatDetailModal = ({ habitatId, onClose }) => {
     if (!data) return null;
 
     return (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 modal-bg">
-            <div className="absolute inset-0 bg-[#3D4A3A]/60 z-[201]" onClick={onClose} />
-            <div className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-[2.5rem] shadow-[0_80px_120px_-40px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col md:flex-row modal-content border border-gray-100">
+        <div className="fixed inset-0 z-[600] flex items-center justify-center p-4 modal-bg">
+            <div className="absolute inset-0 bg-[#3D4A3A]/70 z-[599]" onClick={onClose} />
+            <div className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-[2.5rem] shadow-[0_80px_120px_-40px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col md:flex-row modal-content border border-gray-100 z-[601]">
                 <div className="w-full md:w-1/2 h-72 md:h-auto relative bg-gray-100 shrink-0">
                     <img src={data.img} alt={data.cn} className="w-full h-full object-cover" onError={(e) => { e.target.src = 'https://placehold.co/800x600/D4D4D8/465B49?text=Habitat' }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />

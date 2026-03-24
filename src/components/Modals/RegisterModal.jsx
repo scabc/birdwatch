@@ -3,9 +3,9 @@ import { X } from 'lucide-react';
 
 const RegisterModal = ({ onClose }) => {
     return (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 modal-bg">
-            <div className="absolute inset-0 bg-[#3D4A3A]/60 z-[201]" onClick={onClose} />
-            <div className="relative w-full max-w-md bg-white rounded-[2.5rem] shadow-[0_80px_100px_-40px_rgba(0,0,0,0.4)] overflow-hidden p-10 modal-content border border-gray-100">
+        <div className="fixed inset-0 z-[600] flex items-center justify-center p-4 modal-bg">
+            <div className="absolute inset-0 bg-[#3D4A3A]/70 z-[599]" onClick={onClose} />
+            <div className="relative w-full max-w-md bg-white rounded-[2.5rem] shadow-[0_80px_100px_-40px_rgba(0,0,0,0.5)] overflow-hidden p-10 modal-content border border-gray-100 z-[601]">
                 <button onClick={onClose} className="absolute top-6 right-6 w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-900 transition-all">
                     <X size={20} strokeWidth={1.5} />
                 </button>
