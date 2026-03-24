@@ -1754,9 +1754,10 @@ const FinalActionSection = ({ onJoin }) => {
 
             <div className="max-w-4xl mx-auto px-12 relative z-10 text-center">
                 <Observer>
-                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full mb-8 bg-white/10 backdrop-blur-sm border border-white/10">
-                        <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse-glow"></div>
-                        <span className="text-[10px] font-mono font-bold text-white uppercase tracking-[0.3em]">加入我们</span>
+                    <div className="mb-10">
+                        <span className="inline-block text-amber-400/80 text-xs font-mono uppercase tracking-[0.4em] animate-pulse">
+                            · · ·
+                        </span>
                     </div>
 
                     <h2 className="text-5xl md:text-7xl font-serif font-black text-white mb-8 tracking-tight leading-tight">
@@ -1777,10 +1778,10 @@ const FinalActionSection = ({ onJoin }) => {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                         <button
                             onClick={onJoin}
-                            className="group relative px-10 py-5 glass text-[#1F2937] rounded-full font-bold text-sm tracking-[0.2em] uppercase overflow-hidden hover:bg-amber-500 hover:text-white transition-all duration-500 glow-amber-hover"
+                            className="group relative px-12 py-5 bg-amber-500 text-white rounded-full font-bold text-sm tracking-[0.2em] uppercase overflow-hidden hover:bg-amber-400 transition-all duration-500 shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 hover:-translate-y-1"
                         >
                             <span className="relative z-10 flex items-center gap-3">
-                                Join Now / 立即加入
+                                立即加入
                                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                             </span>
                         </button>
