@@ -1726,9 +1726,9 @@ const FinalActionSection = ({ onJoin }) => {
     const featherOffset = useParallaxBackground(0.25);
 
     return (
-        <section className="relative py-32 bg-gradient-to-b from-[#1F2937] to-[#2D3748] overflow-hidden">
+        <section className="relative py-32 bg-[#3D4A3A] overflow-hidden">
             {/* 动态背景纹理 */}
-            <div className="absolute inset-0 opacity-5"
+            <div className="absolute inset-0 opacity-[0.03]"
                  style={{ backgroundImage: `radial-gradient(#F9F8F4 1px, transparent 1px)`, backgroundSize: '40px 40px' }}>
             </div>
 
