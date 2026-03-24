@@ -166,37 +166,107 @@ const MIGRATION_STORIES = {
         ]
     },
 
-    // 4. 大滨鹬
-    'great_knot': {
-        name: '大滨鹬', en: 'Great Knot',
+    // 4. 青头潜鸭
+    'baers_pochard': {
+        name: '青头潜鸭', en: "Baer's Pochard",
         chapters: [
             {
-                id: '1', month: 'MAY - AUGUST', monthCn: '5月 - 8月',
-                title: '极地繁育 | Arctic Nesting',
-                location: 'Kolyma Delta, Russia',
-                coords: [153.0, 69.0], zoom: 3, themeColor: '#6366F1',
-                text: '在俄罗斯科雷马河三角洲的苔原上，大滨鹬以昆虫和蜘蛛喂养雏鸟。这里夏季24小时极昼，让它们能昼夜不停地觅食育雏。'
+                id: '1', month: 'APRIL - JUNE', monthCn: '4月 - 6月',
+                title: '东北繁育 | Northeast Breeding',
+                location: 'Northeast China',
+                coords: [126.0, 46.0], zoom: 5, themeColor: '#10B981',
+                text: '在中国东北的淡水湿地，青头潜鸭在芦苇丛中筑巢。它们的头部在阳光下泛出独特的绿色光泽，这是它们最醒目的标志。'
             },
             {
-                id: '2', month: 'SEPTEMBER', monthCn: '9月',
-                title: '黄海危机 | Yellow Sea Crisis',
-                location: 'Yalu River Estuary',
-                coords: [124.3, 39.8], zoom: 5, themeColor: '#EF4444',
-                text: '黄渤海是它们迁徙路上最重要的"加油站"。但据估计，超过65%的滩涂已在过去50年中消失。每一只到达这里的大滨鹬都是幸运儿。'
+                id: '2', month: 'OCTOBER', monthCn: '10月',
+                title: '南迁集结 | Southern Migration',
+                location: 'Hebei Coast',
+                coords: [118.5, 39.0], zoom: 5, themeColor: '#3B82F6',
+                text: '随着气温下降，它们开始南迁。在河北沿海的湿地集结，补充迁徙途中消耗的能量。'
             },
             {
-                id: '3', month: 'OCTOBER', monthCn: '10月',
-                title: '最后的停歇 | Final Stopover',
-                location: 'Roebuck Bay, Australia',
-                coords: [122.0, -18.0], zoom: 5, themeColor: '#F59E0B',
-                text: '经过9000公里的飞行，它们抵达西澳大利亚的罗巴克湾。在这里饱餐一餐蛤蜊和蟹仔，为最终目的地积蓄最后的力量。'
+                id: '3', month: 'NOVEMBER', monthCn: '11月',
+                title: '长江中游 | Middle Yangtze',
+                location: 'Yangtze River Basin',
+                coords: [114.0, 30.0], zoom: 5, themeColor: '#6366F1',
+                text: '长江中游的通江湖泊是它们最重要的越冬地。但近年来水位的人工调控严重影响了它们的觅食环境。'
+            },
+            {
+                id: '4', month: 'DEC - MARCH', monthCn: '12月 - 次年3月',
+                title: '鄱阳越冬 | Poyang Wintering',
+                location: 'Poyang Lake, Jiangxi',
+                coords: [116.3, 29.2], zoom: 6, themeColor: '#F59E0B',
+                text: '鄱阳湖是它们最主要的越冬场所。全球仅剩约500只，每一只都是这个物种延续的希望。'
+            }
+        ]
+    },
+
+    // 5. 黄胸鹀
+    'yellow_bunting': {
+        name: '黄胸鹀', en: 'Yellow-breasted Bunting',
+        chapters: [
+            {
+                id: '1', month: 'MAY - JULY', monthCn: '5月 - 7月',
+                title: '繁殖地 | Breeding Grounds',
+                location: 'Siberia / Mongolia',
+                coords: [105.0, 52.0], zoom: 4, themeColor: '#FBBF24',
+                text: '在西伯利亚和蒙古的森林草原交界处，黄胸鹀在灌丛中筑巢。曾经的田间常见鸟，如今在繁殖地也难觅踪迹。'
+            },
+            {
+                id: '2', month: 'AUGUST', monthCn: '8月',
+                title: '南迁起点 | Migration Start',
+                location: 'Northeast China',
+                coords: [125.0, 45.0], zoom: 5, themeColor: '#F59E0B',
+                text: '八月开始南迁，在东北地区的农田和湿地边缘停歇。此时它们体态丰腴，正是"禾花雀"被捕猎的目标。'
+            },
+            {
+                id: '3', month: 'SEPT - OCT', monthCn: '9月 - 10月',
+                title: '穿越华北 | Crossing North China',
+                location: 'North China Plain',
+                coords: [116.0, 36.0], zoom: 5, themeColor: '#EF4444',
+                text: '穿越华北平原的农田，这里曾是它们迁徙途中的重要驿站。但密集的捕鸟网和交易市场让这段旅程充满杀机。'
             },
             {
                 id: '4', month: 'NOV - MARCH', monthCn: '11月 - 次年3月',
-                title: '天涯咫尺 | Southern Haven',
-                location: 'Northwest Australia',
-                coords: [128.0, -20.0], zoom: 4, themeColor: '#10B981',
-                text: '在澳大利亚北部海岸的泥质潮间带，它们混入数以万计的其他鸻鹬群中。全球约50万只大滨鹬在此越冬，种群数量正在下降。'
+                title: '华南越冬 | South China Wintering',
+                location: 'Guangdong / SE Asia',
+                coords: [113.0, 23.0], zoom: 5, themeColor: '#10B981',
+                text: '最终抵达华南或东南亚越冬。短短二十年，这个曾经遍布欧亚的物种，从"无危"坠入"极危"，种群崩溃速度令人震惊。'
+            }
+        ]
+    },
+
+    // 6. 细纹苇莺
+    'reed_warbler': {
+        name: '细纹苇莺', en: 'Streaked Reed Warbler',
+        chapters: [
+            {
+                id: '1', month: 'MAY', monthCn: '5月',
+                title: '神秘的到来 | Mysterious Arrival',
+                location: 'Coastal Wetlands, China',
+                coords: [120.0, 35.0], zoom: 5, themeColor: '#10B981',
+                text: '细纹苇莺的繁殖地至今成谜。五月，它们神秘地出现在中国东部沿海的芦苇荡中，开始繁殖季节。'
+            },
+            {
+                id: '2', month: 'JUNE - JULY', monthCn: '6月 - 7月',
+                title: '芦苇繁育 | Reed Nesting',
+                location: 'Yellow River Delta',
+                coords: [119.0, 37.5], zoom: 6, themeColor: '#6366F1',
+                text: '在黄河三角洲的芦苇丛中，它们编织出精巧的巢穴。但沿海湿地的开发让这些隐秘的栖息地不断缩小。'
+            },
+            {
+                id: '3', month: 'AUGUST - SEPT', monthCn: '8月 - 9月',
+                title: '南迁开始 | Southern Migration',
+                location: 'East China Coast',
+                coords: [121.0, 31.0], zoom: 5, themeColor: '#3B82F6',
+                text: '八月开始南迁，沿着中国东部海岸线移动。它们身形娇小，却要独自完成数千公里的迁徙旅程。'
+            },
+            {
+                id: '4', month: 'OCT - APRIL', monthCn: '10月 - 次年4月',
+                title: '南方越冬 | Southern Wintering',
+                location: 'South China / SE Asia',
+                coords: [110.0, 20.0], zoom: 5, themeColor: '#F59E0B',
+                text: '在华南和东南亚的芦苇湿地越冬。第二年春天，它们又会消失在某个未知的北方繁殖地，延续着这个物种的神秘轮回。'
             }
         ]
     }
