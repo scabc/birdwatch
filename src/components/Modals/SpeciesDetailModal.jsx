@@ -36,7 +36,7 @@ const SpeciesDetailModal = ({ birdId, onClose }) => {
     if (!data) return null;
 
     const isCR = data.status === 'CR';
-    const themeColor = isCR ? '#A0522D' : '#D9A22E';
+    const themeColor = isCR ? '#A64B2A' : '#C49A3C';
 
     return (
         <div className="fixed inset-0 z-[300] flex items-center justify-center p-8 md:p-16 lg:p-24 overflow-hidden">
@@ -89,7 +89,7 @@ const SpeciesDetailModal = ({ birdId, onClose }) => {
                             <div className="w-1 h-3 bg-amber-500 rounded-full"></div>
                             <span className="text-[9px] font-mono font-bold tracking-[0.4em] text-amber-600 uppercase">SPECIMEN ID: {birdId.slice(0, 5).toUpperCase()}</span>
                         </div>
-                        <div className={`px-4 py-1 rounded-full text-[9px] font-black tracking-widest text-white`} style={{ backgroundColor: themeColor }}>
+                        <div className={`px-4 py-1 rounded-full text-[9px] font-black tracking-widest text-white ${isCR ? 'animate-pulse-cr' : ''}`} style={{ backgroundColor: themeColor }}>
                             {isCR ? '极危 · CR' : '濒危 · EN'}
                         </div>
                     </div>
