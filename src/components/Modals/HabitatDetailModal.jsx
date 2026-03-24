@@ -9,32 +9,44 @@ const HabitatDetailModal = ({ habitatId, onClose }) => {
     return (
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 modal-bg">
             <div className="absolute inset-0 bg-[#3D4A3A]/60 z-[201]" onClick={onClose} />
-            <div className="relative w-full max-w-4xl max-h-[90vh] bg-[#FAF8F5] rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row modal-content border border-[#3D4A3A]/10">
-                <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-gray-100 shrink-0">
+            <div className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-[2.5rem] shadow-[0_80px_120px_-40px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col md:flex-row modal-content border border-gray-100">
+                <div className="w-full md:w-1/2 h-72 md:h-auto relative bg-gray-100 shrink-0">
                     <img src={data.img} alt={data.cn} className="w-full h-full object-cover" onError={(e) => { e.target.src = 'https://placehold.co/800x600/D4D4D8/465B49?text=Habitat' }} />
-                    <button onClick={onClose} className="absolute top-4 left-4 w-10 h-10 bg-[#3D4A3A]/50 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-[#3D4A3A]/70 transition-colors">
-                        <X size={20} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
+                    <button onClick={onClose} className="absolute top-6 left-6 w-12 h-12 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all border border-white/20 z-30">
+                        <X size={20} strokeWidth={1.5} />
                     </button>
                 </div>
-                <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto">
-                    <div className="space-y-1 mb-6">
-                        <h2 className="text-3xl font-bold text-[#3D4A3A]">{data.cn}</h2>
-                        <p className="text-xl text-[#6B7561]">{data.en}</p>
+                <div className="w-full md:w-1/2 p-10 md:p-14 overflow-y-auto no-scrollbar">
+                    <div className="flex items-center gap-3 mb-8 border-b border-gray-100 pb-6">
+                        <div className="w-1 h-3 bg-emerald-500 rounded-full"></div>
+                        <span className="text-[10px] font-mono font-bold tracking-[0.3em] text-emerald-600 uppercase">Habitat ID: {habitatId.slice(0, 5).toUpperCase()}</span>
                     </div>
-                    <div className="flex flex-wrap gap-2 mb-8">
+                    <div className="space-y-1 mb-10">
+                        <h2 className="text-4xl font-serif font-black text-gray-900 tracking-tight leading-none">{data.cn}</h2>
+                        <p className="text-lg font-serif text-gray-400 italic tracking-wide">{data.en}</p>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-10">
                         {data.tags.map((tag, i) => (
-                            <span key={i} className="px-3 py-1 bg-[#5C7A4A]/10 text-[#5C7A4A] text-xs font-semibold rounded-full border border-[#5C7A4A]/20">{tag}</span>
+                            <span key={i} className="px-4 py-1.5 bg-emerald-50 text-emerald-700 text-xs font-semibold rounded-full border border-emerald-100">{tag}</span>
                         ))}
                     </div>
-                    <h3 className="text-lg font-bold text-[#3D4A3A] mb-3">生态价值 | Ecological Value</h3>
-                    <p className="text-sm text-[#6B7561] leading-relaxed mb-6">
-                        {data.descCn} <span className="block mt-2 text-xs text-[#9BA591] italic">({data.descEn})</span>
-                    </p>
-                    <div className="bg-white p-4 rounded-xl border border-[#3D4A3A]/10">
-                        <h3 className="text-sm font-bold text-[#3D4A3A] mb-2 flex items-center gap-2">
-                            <Target size={16} className="text-[#C49A3C]" /> 代表物种 | Featured Species
-                        </h3>
-                        <p className="text-sm font-medium text-[#6B7561]">{data.featured.join('、')}</p>
+                    <div className="space-y-8">
+                        <section>
+                            <h3 className="text-[10px] font-black uppercase tracking-[0.25em] text-gray-400 mb-4 flex items-center gap-2">
+                                <Target size={14} className="text-amber-500" /> 生态价值 | Ecological Value
+                            </h3>
+                            <p className="text-[15px] font-serif text-gray-600 leading-[1.9] opacity-90">
+                                {data.descCn}
+                            </p>
+                            <p className="text-[11px] text-gray-300 font-sans italic mt-3 tracking-wide">({data.descEn})</p>
+                        </section>
+                        <div className="p-6 bg-gray-50 rounded-[2rem] border border-gray-100">
+                            <h3 className="text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
+                                代表物种 | Featured Species
+                            </h3>
+                            <p className="text-[13px] font-medium text-gray-500">{data.featured.join('、')}</p>
+                        </div>
                     </div>
                 </div>
             </div>
