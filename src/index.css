@@ -4,17 +4,50 @@
 
 /* 2. 然后是设计令牌定义 (Tailwind v4 @theme) */
 @theme {
-  /* 配色方案 */
-  --color-bg: #F8F7F4;
-  --color-fg: #465B49;
-  --color-accent: #D9A22E;
-  --color-secondary-accent: #5F855C; 
+  /* ============================================
+     自然色系配色方案 (Nature-Inspired Palette)
+     ============================================ */
+
+  /* 主背景色 - 暖米色/象牙色 */
+  --color-bg: #FAF8F5;
+  --color-bg-warm: #F5F0E8;
+  --color-bg-muted: #EDEAE4;
+
+  /* 主文字色 - 深橄榄绿 */
+  --color-fg: #3D4A3A;
+  --color-fg-muted: #6B7561;
+  --color-fg-subtle: #9BA591;
+
+  /* 强调色 - 琥珀金色 (警示/高亮) */
+  --color-accent: #C49A3C;
+  --color-accent-light: #E8C86B;
+  --color-accent-dark: #9A7A2E;
+  --color-accent-glow: rgba(196, 154, 60, 0.25);
+
+  /* 次级强调 - 苔藓绿 (辅助/成功) */
+  --color-secondary: #5C7A4A;
+  --color-secondary-light: #7A9E64;
+  --color-secondary-dark: #435A36;
+
+  /* 极危 CR - 深赭红 (警示升级) */
+  --color-cr: #A64B2A;
+  --color-cr-light: #C86B4A;
+  --color-cr-dark: #7A3620;
+
+  /* 濒危 EN - 琥珀金 (警示) */
+  --color-en: #B8860B;
+  --color-en-light: #DAA520;
+  --color-en-dark: #8B6508;
+
+  /* 易危 VU - 橄榄绿 */
+  --color-vu: #6B7B3A;
+  --color-vu-light: #8B9B5A;
+
+  /* 通用 */
   --color-card: #FFFFFF;
-  --color-danger: #A0522D;
-  --color-neutral_sub: #A1A1AA;
-  --color-map_light: #EAEAEA;
-  --color-cr-tag: #A0522D;
-  --color-en-tag: #D9A22E;
+  --color-card-glass: rgba(255, 255, 255, 0.72);
+  --color-border: rgba(61, 74, 58, 0.08);
+  --color-border-light: rgba(61, 74, 58, 0.04);
 
   /* 字体家族 */
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -22,8 +55,10 @@
   --font-mono: 'JetBrains Mono', monospace;
 
   /* 阴影 */
-  --shadow-soft: 0 6px 20px -5px rgba(0, 0, 0, 0.08);
-  --shadow-md-soft: 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+  --shadow-soft: 0 6px 20px -5px rgba(61, 74, 58, 0.08);
+  --shadow-md-soft: 0 4px 10px -2px rgba(61, 74, 58, 0.06);
+  --shadow-glow-accent: 0 0 30px rgba(196, 154, 60, 0.2);
+  --shadow-glow-cr: 0 0 30px rgba(166, 75, 42, 0.2);
 }
 
 /* 3. 最后是自定义样式和动画关键帧 */
@@ -105,38 +140,44 @@ body {
    ============================================ */
 
 .glass {
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(61, 74, 58, 0.08);
 }
 
 .glass-dark {
-  background: rgba(30, 30, 30, 0.75);
+  background: rgba(45, 52, 42, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-amber {
-  background: rgba(217, 162, 46, 0.12);
+  background: rgba(196, 154, 60, 0.1);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(217, 162, 46, 0.2);
+  border: 1px solid rgba(196, 154, 60, 0.15);
 }
 
 /* 悬浮发光效果 */
 .glow-amber {
   box-shadow:
-    0 0 20px rgba(217, 162, 46, 0.15),
-    0 8px 32px rgba(0, 0, 0, 0.08);
+    0 0 20px rgba(196, 154, 60, 0.15),
+    0 8px 32px rgba(61, 74, 58, 0.08);
 }
 
 .glow-amber-hover:hover {
   box-shadow:
-    0 0 30px rgba(217, 162, 46, 0.25),
-    0 12px 48px rgba(0, 0, 0, 0.12);
-  border-color: rgba(217, 162, 46, 0.3);
+    0 0 30px rgba(196, 154, 60, 0.25),
+    0 12px 48px rgba(61, 74, 58, 0.12);
+  border-color: rgba(196, 154, 60, 0.25);
+}
+
+.glow-cr {
+  box-shadow:
+    0 0 20px rgba(166, 75, 42, 0.2),
+    0 8px 32px rgba(166, 75, 42, 0.1);
 }
 
 /* ============================================
@@ -199,14 +240,27 @@ body {
 /* 脉冲呼吸光晕 */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(217, 162, 46, 0.2);
+    box-shadow: 0 0 20px rgba(196, 154, 60, 0.2);
   }
   50% {
-    box-shadow: 0 0 40px rgba(217, 162, 46, 0.4);
+    box-shadow: 0 0 40px rgba(196, 154, 60, 0.4);
   }
 }
 .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* CR 状态脉冲 */
+@keyframes pulse-cr {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(166, 75, 42, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(166, 75, 42, 0.5);
+  }
+}
+.animate-pulse-cr {
+  animation: pulse-cr 2.5s ease-in-out infinite;
 }
 
 /* 边框流光 */
@@ -217,9 +271,9 @@ body {
 }
 .border-gradient-animated {
   background: linear-gradient(90deg,
-    rgba(217, 162, 46, 0.3),
-    rgba(217, 162, 46, 0.1),
-    rgba(217, 162, 46, 0.3)
+    rgba(196, 154, 60, 0.4),
+    rgba(196, 154, 60, 0.15),
+    rgba(196, 154, 60, 0.4)
   );
   background-size: 200% 100%;
   animation: border-flow 3s linear infinite;
@@ -232,11 +286,14 @@ body {
 }
 .text-shimmer {
   background: linear-gradient(90deg,
-    var(--color-fg) 0%,
-    var(--color-accent) 50%,
-    var(--color-fg) 100%
+    #3D4A3A 0%,
+    #C49A3C 50%,
+    #3D4A3A 100%
   );
   background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
