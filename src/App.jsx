@@ -646,8 +646,8 @@ const DataHubSection = () => {
 
     return (
         <section id="data-hub" className="py-40 bg-[#FCFBFA] relative overflow-hidden">
-            {/* IP 形象装饰 - 位于左侧边缘，只露出上半身 */}
-            <div className="absolute left-0 top-48 z-10 w-28 overflow-hidden pointer-events-none">
+            {/* IP 形象装饰 - 位于右侧边缘，只露出上半身 */}
+            <div className="absolute right-0 top-48 z-10 w-28 overflow-hidden pointer-events-none">
                 <div className="overflow-hidden h-24">
                     <img src="/2@288x.png" alt="" className="w-full object-contain" />
                 </div>
