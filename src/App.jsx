@@ -482,7 +482,7 @@ const MigrationMap = ({ onNodeClick }) => {
                         <div className="flex items-center gap-4 mb-8">
                             <div className="px-4 py-1.5 bg-[#1F2937] rounded-full flex items-center gap-3 shadow-lg">
                                 <Globe size={14} className="text-amber-500 animate-pulse" />
-                                <span className="text-[10px] font-mono font-bold text-white uppercase tracking-[0.2em]">Flight Cartography</span>
+                                <span className="text-[10px] font-mono font-bold text-white uppercase tracking-[0.2em]">航迹绘制</span>
                             </div>
                         </div>
         
@@ -662,7 +662,7 @@ const DataHubSection = () => {
                         <div className="flex items-center gap-4 mb-8">
                             <div className="px-4 py-1.5 bg-[#1F2937] rounded-full flex items-center gap-3 shadow-lg">
                                 <Activity size={14} className="text-amber-500 animate-pulse" />
-                                <span className="text-[10px] font-mono font-bold text-white uppercase tracking-[0.2em]">Live Data Feed</span>
+                                <span className="text-[10px] font-mono font-bold text-white uppercase tracking-[0.2em]">实时数据</span>
                             </div>
                         </div>
         
@@ -1118,7 +1118,7 @@ const DiscoveryHub = ({ seenBirds }) => {
                         <div className="flex items-center gap-4 mb-8">
                             <div className="px-4 py-1.5 bg-[#1F2937] rounded-full flex items-center gap-3 shadow-lg">
                                 <Radar size={14} className="text-amber-500 animate-pulse" />
-                                <span className="text-[10px] font-mono font-bold text-white uppercase tracking-[0.2em]">Lab Control Center</span>
+                                <span className="text-[10px] font-mono font-bold text-white uppercase tracking-[0.2em]">实验室控制台</span>
                             </div>
                         </div>
                         
@@ -1407,7 +1407,7 @@ const TimelineSection = ({ onSelectEvent }) => {
                         <div className="flex items-center gap-4 mb-8">
                             <div className="px-4 py-1.5 bg-[#1F2937] rounded-full flex items-center gap-3 shadow-lg">
                                 <Shield size={14} className="text-amber-500 animate-pulse" />
-                                <span className="text-[10px] font-mono font-bold text-white uppercase tracking-[0.2em]">Conservation Legacy</span>
+                                <span className="text-[10px] font-mono font-bold text-white uppercase tracking-[0.2em]">保护传承</span>
                             </div>
                         </div>
         
@@ -2021,7 +2021,7 @@ function App() {
                         onClick={() => setShowRegister(true)}
                         className="hidden md:block px-6 py-2.5 bg-[#4A4238] text-[#F9F8F4] text-[10px] font-bold uppercase tracking-[0.15em] rounded-full hover:bg-[#D9A22E] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
                     >
-                        Join Us
+                        加入我们
                     </button>
                     {/* Mobile Menu Button */}
                     <button
@@ -2099,13 +2099,13 @@ function App() {
                             <div className="glass p-4 rounded-2xl space-y-2">
                                 <div className="flex items-center gap-3">
                                     <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse-glow"></div>
-                                    <p className="text-[10px] font-mono font-bold text-[#1F2937] uppercase tracking-[0.4em]">Tracking established</p>
+                                    <p className="text-[10px] font-mono font-bold text-[#1F2937] uppercase tracking-[0.4em]">追踪已建立</p>
                                 </div>
                                 <p className="text-[9px] font-mono text-gray-400 uppercase tracking-[0.3em] pl-4">31.2304° N // 121.4737° E</p>
                             </div>
                             <div className="glass p-4 rounded-2xl text-right">
-                                <p className="text-[10px] font-mono font-black text-[#1F2937] uppercase tracking-[0.4em]">Archive Rev. 2025</p>
-                                <p className="text-[9px] font-mono text-gray-400 uppercase tracking-[0.3em] mt-1">EAAFP Global Link // Active</p>
+                                <p className="text-[10px] font-mono font-black text-[#1F2937] uppercase tracking-[0.4em]">档案版本 2025</p>
+                                <p className="text-[9px] font-mono text-gray-400 uppercase tracking-[0.3em] mt-1">东亚澳迁徙线 // 在线</p>
                             </div>
                         </div>
 
@@ -2117,7 +2117,7 @@ function App() {
                             </div>
                             <div className="flex items-center gap-8">
                                 <div className="h-px w-32 bg-gradient-to-r from-transparent to-gray-200"></div>
-                                <p className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-[0.5em]">Scroll to Access</p>
+                                <p className="text-[10px] font-mono font-bold text-gray-400 uppercase tracking-[0.5em]">下滑探索</p>
                             </div>
                         </div>
                     </div>
@@ -2157,8 +2157,8 @@ function App() {
                                             只为守护那条维系生命的 <span className="text-[#1F2937] font-black not-italic border-b-2 border-amber-500/40">蓝色通道</span>。
                                         </p>
                                         <div className="flex flex-col items-end gap-1">
-                                            <span className="text-[10px] font-black text-[#1F2937] uppercase tracking-[0.4em]">50 Million Lives</span>
-                                            <span className="text-[9px] font-bold text-amber-600/60 uppercase tracking-[0.3em]">Across 22 Nations</span>
+                                            <span className="text-[10px] font-black text-[#1F2937] uppercase tracking-[0.4em]">5000万生命</span>
+                                            <span className="text-[9px] font-bold text-amber-600/60 uppercase tracking-[0.3em]">跨越22个国家</span>
                                         </div>
                                     </div>
                                 </div>
@@ -2176,7 +2176,7 @@ function App() {
                                     <ArrowLeft size={18} className="rotate-[135deg] text-gray-400 group-hover:text-amber-600 transition-all" />
                                 </div>
                                 <span className="[writing-mode:vertical-lr] text-[10px] font-black tracking-[0.6em] text-gray-300 uppercase group-hover:text-[#1F2937] transition-colors duration-500">
-                                    Explore Archive
+                                    探索档案
                                 </span>
                             </button>
                         </div>
