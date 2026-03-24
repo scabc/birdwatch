@@ -646,8 +646,15 @@ const DataHubSection = () => {
 
     return (
         <section id="data-hub" className="py-40 bg-[#FCFBFA] relative overflow-hidden">
-            <div className="max-w-[1440px] mx-auto px-12">
-                
+            {/* IP 形象装饰 - 位于左侧边缘，只露出上半身 */}
+            <div className="absolute left-0 top-48 z-10 w-28 overflow-hidden pointer-events-none">
+                <div className="overflow-hidden h-24">
+                    <img src="/2@288x.png" alt="" className="w-full object-contain" />
+                </div>
+            </div>
+
+            <div className="max-w-[1440px] mx-auto px-12 relative z-10">
+
                 {/* --- 生态哨兵：统一标题系统 (字号 6xl) --- */}
                 <div className="flex flex-col lg:flex-row justify-between items-end mb-24 border-b border-gray-100 pb-12 gap-12">
                     <Observer className="max-w-2xl">
