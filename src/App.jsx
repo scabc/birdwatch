@@ -1379,6 +1379,7 @@ const TemporalLensLab = () => {
 const TimelineSection = ({ onSelectEvent }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [activeCategory, setActiveCategory] = useState('ALL');
+    const [isExpanded, setIsExpanded] = useState(false);
 
     const CATEGORIES = [
         { cn: '全部', en: 'ALL' },
@@ -1395,6 +1396,13 @@ const TimelineSection = ({ onSelectEvent }) => {
             return matchesSearch && matchesCategory;
         });
     }, [searchTerm, activeCategory]);
+
+    // 默认显示前4条，搜索或筛选时显示全部
+    const displayedEvents = (searchTerm || activeCategory !== 'ALL')
+        ? filteredEvents
+        : isExpanded
+            ? filteredEvents
+            : filteredEvents.slice(0, 4);
 
     return (
         <section id="timeline" className="py-56 bg-white relative overflow-hidden">
@@ -1461,11 +1469,11 @@ const TimelineSection = ({ onSelectEvent }) => {
                     {/* 中轴线 */}
                     <div className="absolute left-10 md:left-1/2 top-0 bottom-0 w-px bg-gray-100 -translate-x-1/2"></div>
 
-                    {filteredEvents.length > 0 ? (
+                    {displayedEvents.length > 0 ? (
                         <div className="space-y-40">
-                            {filteredEvents.map((item, index) => (
+                            {displayedEvents.map((item, index) => (
                                 <Observer key={item.year} delay={index * 50}>
-                                    <div 
+                                    <div
                                         onClick={() => onSelectEvent(item)}
                                         className={`relative flex flex-col md:flex-row items-start cursor-pointer group ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
                                     >
@@ -1515,6 +1523,18 @@ const TimelineSection = ({ onSelectEvent }) => {
                             </div>
                             <h4 className="text-2xl font-serif font-bold text-gray-400">未在档案库中检索到相关历史记录</h4>
                             <p className="text-gray-300 mt-4 text-sm font-mono uppercase tracking-widest italic">No matching record found in conservation archive</p>
+                        </div>
+                    )}
+
+                    {/* 展开/收起按钮 */}
+                    {!searchTerm && activeCategory === 'ALL' && filteredEvents.length > 4 && (
+                        <div className="flex justify-center pt-20">
+                            <button
+                                onClick={() => setIsExpanded(!isExpanded)}
+                                className="px-10 py-4 bg-white border-2 border-gray-100 text-gray-600 font-bold rounded-full hover:border-amber-500 hover:text-amber-600 transition-all duration-300 shadow-sm hover:shadow-md"
+                            >
+                                {isExpanded ? '收起更多' : '展开更多'}
+                            </button>
                         </div>
                     )}
                 </div>
@@ -1706,21 +1726,21 @@ const FinalActionSection = ({ onJoin }) => {
     const featherOffset = useParallaxBackground(0.25);
 
     return (
-        <section className="relative py-32 bg-[#1F2937] overflow-hidden">
+        <section className="relative py-32 bg-gradient-to-b from-[#1F2937] to-[#2D3748] overflow-hidden">
             {/* 动态背景纹理 */}
-            <div className="absolute inset-0 opacity-10"
+            <div className="absolute inset-0 opacity-5"
                  style={{ backgroundImage: `radial-gradient(#F9F8F4 1px, transparent 1px)`, backgroundSize: '40px 40px' }}>
             </div>
 
             {/* 飞鸟装饰 - 带视差 */}
             <div
-                className="absolute top-10 left-10 text-white/5 animate-pulse duration-[5s] parallax-element"
+                className="absolute top-10 left-10 text-white/[0.03] animate-pulse duration-[5s] parallax-element"
                 style={{ transform: `translateY(${birdOffset}px)` }}
             >
                 <Bird size={200} strokeWidth={0.5} />
             </div>
             <div
-                className="absolute bottom-0 right-0 text-white/5 rotate-180 parallax-element"
+                className="absolute bottom-0 right-0 text-white/[0.03] rotate-180 parallax-element"
                 style={{ transform: `translateY(${-featherOffset}px)` }}
             >
                 <Feather size={300} strokeWidth={0.5} />
@@ -1734,9 +1754,9 @@ const FinalActionSection = ({ onJoin }) => {
 
             <div className="max-w-4xl mx-auto px-12 relative z-10 text-center">
                 <Observer>
-                    <div className="glass-dark glow-amber inline-flex items-center gap-3 px-5 py-2 rounded-full mb-8">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-glow"></div>
-                        <span className="text-[10px] font-mono font-bold text-white uppercase tracking-[0.3em]">Join the Network</span>
+                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full mb-8 bg-white/10 backdrop-blur-sm border border-white/10">
+                        <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse-glow"></div>
+                        <span className="text-[10px] font-mono font-bold text-white uppercase tracking-[0.3em]">加入我们</span>
                     </div>
 
                     <h2 className="text-5xl md:text-7xl font-serif font-black text-white mb-8 tracking-tight leading-tight">
@@ -1749,12 +1769,9 @@ const FinalActionSection = ({ onJoin }) => {
                         </span>
                     </h2>
 
-                    <p className="text-lg md:text-xl text-gray-400 font-serif leading-relaxed mb-12 max-w-2xl mx-auto">
+                    <p className="text-lg md:text-xl text-gray-300 font-serif leading-relaxed mb-12 max-w-2xl mx-auto">
                         候鸟不需要护照，但它们需要安全的落脚点。<br/>
                         你的每一次观测、每一次分享、每一份关注，都在为这条数千公里的生命线注入力量。
-                        <span className="block mt-4 text-xs font-sans text-gray-500 uppercase tracking-widest">
-                            They don't need passports, but they need sanctuary. Your witness is their shield.
-                        </span>
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
