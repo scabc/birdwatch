@@ -8,7 +8,7 @@ const HabitatDetailModal = ({ habitatId, onClose }) => {
 
     return (
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 modal-bg">
-            <div className="absolute inset-0 bg-[#3D4A3A]/60 backdrop-blur-md z-[201]" onClick={onClose} />
+            <div className="absolute inset-0 bg-[#3D4A3A]/60 z-[201]" onClick={onClose} />
             <div className="relative w-full max-w-4xl max-h-[90vh] bg-[#FAF8F5] rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row modal-content border border-[#3D4A3A]/10">
                 <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-gray-100 shrink-0">
                     <img src={data.img} alt={data.cn} className="w-full h-full object-cover" onError={(e) => { e.target.src = 'https://placehold.co/800x600/D4D4D8/465B49?text=Habitat' }} />

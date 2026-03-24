@@ -40,7 +40,7 @@ const SpeciesDetailModal = ({ birdId, onClose }) => {
 
     return (
         <div className="fixed inset-0 z-[300] flex items-center justify-center p-8 md:p-16 lg:p-24 overflow-hidden">
-            <div className="absolute inset-0 bg-[#0C0C0C]/80 backdrop-blur-3xl transition-opacity duration-300" onClick={onClose} />
+            <div className="absolute inset-0 bg-[#3D4A3A]/70 transition-opacity duration-300" onClick={onClose} />
 
             <div className="relative w-full max-w-5xl h-[82vh] bg-white rounded-[3rem] shadow-[0_80px_150px_-40px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col lg:flex-row modal-content border border-white/10">
 
